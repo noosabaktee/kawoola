@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'title' %}Kawoola{% endblock %}
+{% block 'content' %}
+<!-- JUMBOTRON -->
+<div id="jumbotron">
+  <div class="row flex-row-reverse center-mobile">
+    <div class="col-md-5 text-center">
+      <img class="img-fluid hero" src="{% static 'img/hero.png' %}" alt="hero"/>
+    </div>
+    <div class="col-md-7 pt-2 margin-top-desktop">
+      <h1 class="font-weight-bold title jumbotron-tulisan">Kawoola</h1>
+      <h3 class="font-weight-bold">Lebih mudah mencari pengalaman!</h3>
+      <p>Dengan Curriculum Vitae yang menarik kamu akan lebih mudah mencari pengalaman dan mejelajahi dunia barumu.</p>
+      <span class="h4 d-block">Join Sekarang!</span>
+      <button class="btn btn-dark">Daftar Sekarang</button>
+    </div>
+  </div>
+</div>
+
+<!-- MULAI -->
+<div id="start" class="mt-5">
+  <h2 class="font-weight-bold text-center">Mulai Dari Mana?</h2>
+  <div class="row pt-2">
+    <div class="col-md-4">
+      <h4 class="font-weight-bold">Register</h4>
+      <p>Kamu bisa klik button "Daftar Sekarang" diatas atau klik link ini untuk mengisi form register.</p>
+    </div>
+    <div class="col-md-4">
+      <h4 class="font-weight-bold">Melengkapi Data</h4>
+      <p>Isi form yang tersedia pada bagian profil untuk melengkapi CV mu.</p>
+    </div>
+    <div class="col-md-4">
+      <h4 class="font-weight-bold">Akses Website</h4>
+      <p>Kamu dapat mengakses CV mu melalui website atau mengakses dalam bentuk PDF</p>
+    </div>
+  </div>
+</div>
+
+<!-- TENTANG KAMI -->
+<div id="about" class="mt-4">
+  <h2 class="font-weight-bold text-center">Sedikit Tentang Kami</h2>
+  <div class="row pt-1">
+    <div class="col-md-6">
+      <h4 class="font-weight-bold">Apa?</h4>
+      <p>Kawoola adalah website untuk membuat CV dengan mudah Dan dapat di akses melalui website dimanapun Dan kapanpun. Kawoola dibuat untuk memudahkan orang-orang Membuat CV dengan mudah, cepat Dan modern agar mereka bisa melamar pekerjaan dengan CV yang menarik.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h4 class="font-weight-bold">Mengapa?</h4>
+      <p>
+        1. Dapat diakses melalui website kapanpun & dimanapun<br>
+        2. Fitur yang memadai untuk kebutuhan <br>
+        3. Warna tampilan CV dapat diubah sesuai selera <br>
+        4. Website cepat dan selalu aktif selama 24 jam <br>
+        5. Tampilan website responsive pada perangkat mobile<br>
+      </p>
+    </div>
+  </div>
+</div> 
+
+<!-- DEMO -->
+{% include 'layout/demo.html' %}
+
+<!-- DONASI -->
+<div id="donasi" class="mt-4">
+  <div class="row center-mobile">
+    <div class="col-md-5 text-center">
+      <img class="img-fluid" src="{% static 'img/ngoffee.png' %}" alt="donasi" />
+    </div>
+    <div class="col-md-7 pt-2 margin-top-desktop">
+      <h2 class="font-weight-bold">Donasi</h2>
+      <h3>Support kami!</h3>
+      <p>Jika kamu berkenan untuk berdonasi, kamu bisa memilih metode dibawah untuk berdonasi. Terima Kasih!</p>
+      <div class="d-inline-block">
+        <img src="{% static 'img/trakteer.png' %}" width="80">
+        <p class="m-2">Trakteer</p>
+      </div>
+      <div class="d-inline-block mr-2 ml-2">
+        <img src="{% static 'img/bmc.png' %}" width="55">
+        <p class="m-2">BMaC</p>
+      </div>
+      <div class="d-inline-block">
+        <img src="{% static 'img/saweria.png' %}" width="80">
+        <p class="m-2">Saweria</p>
+      </div>
+      <div class="d-inline-block">
+        <img src="{% static 'img/paypal.png' %}" width="65">
+        <p class="m-2">&nbsp;PayPal&nbsp;</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

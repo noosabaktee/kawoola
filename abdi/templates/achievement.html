@@ -1,0 +1,61 @@
+{% load tags %}
+{% load static %}
+<!-- ACHIEVEMENT -->
+<div>
+  <h4 class="font-weight-bold">
+  Achievement
+  {% if data.achievement|count < 5 %}
+      <button class="btn btn-abdi btn-sm" data-toggle="modal" data-target="#formAchievement">Add</button>
+  {% endif %}
+  </h4>
+
+  <div>
+    {% if data.achievement %}
+    {% for x in data.achievement|toObj %}
+        <div id="achievement-{{forloop.counter}}" >
+            <span class="my-font prestasi font-weight-bold">{{ x.prestasi }}</span> - 
+            <span class="tahun font-weight-bold">{{ x.tahun }}</span> 
+            (<span class="tempat font-weight-bold">{{ x.tempat }}</span>)
+            <br />
+            <form name="form-del-ach" action="{% url 'del_ach' %}" method="POST" accept-charset="utf-8">
+                {% csrf_token %}
+                <span class="btn-ach text-primary mr-2" index="{{ forloop.counter0 }}" data-toggle="modal" data-target="#formAchievement">Edit</span>
+                <input type="hidden" name="index" value="{{ forloop.counter0 }}" />
+                <span class="text-danger" onclick="if(confirm('Mau menghapus {{ x.prestasi }}?')){document.forms['form-del-ach'].submit()}">Delete</span>
+            </form>
+        </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="formAchievement" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="modal-title h4" id="exampleModalLabel">Form Achievement</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'add_ach' %}" id="form-ach" method="POST" accept-charset="utf-8" update="{% url 'update_ach' %}">
+            {% csrf_token %}
+            <label for="prestasi">Nama Prestasi</label>
+            <input class="form-control" type="text" name="prestasi" id="prestasi" placeholder="Nama Prestasi" required=""/>
+            <div class="form-row mt-2">
+              <div class="col-6">
+                 <label for="tahun">Tahun</label>
+                <input type="number" name="tahun" class="form-control" id="tahun" placeholder="tahun" required="">
+              </div>
+              <div class="col-6">
+                <label for="tempat">Tempat</label>
+                <input type="text" name="tempat" class="form-control" id="tempat" placeholder="tempat" required="">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Add</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

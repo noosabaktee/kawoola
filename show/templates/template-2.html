@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tags %}
+{% block 'style' %}{% static 'css/style-2.css' %}{% endblock %}
+{% block 'title' %}{{ user.first_name }} {{ user.last_name }}{% endblock %}
+{% block 'attr' %}
+bg1={{ data.color|toObj:'bg-1' }}
+text1={{ data.color|toObj:'text-1' }}
+bg2={{ data.color|toObj:'bg-2' }}
+text2={{ data.color|toObj:'text-2' }}
+id="riwayat-2" 
+{% endblock %}
+{% block 'element' %}
+<div class="row" id="show">
+  <!-- LEFT -->
+  <div class="col-md-5 col-lg-4 pt-4 pb-4 my-container" id="left">
+    <div class="text-center">
+      <img class="rounded-circle" src="{{ data.photo }}" alt="profile" width="150" height="150" data-aos="zoom-in"/>
+      <span class="mt-2 h3 d-block" data-aos="fade-right">{{ user.first_name }} {{ user.last_name }}</span>
+      <p class="text-justify" data-aos="zoom-in">
+      {{ data.description }}
+      </p>
+    </div>
+    <!-- About -->
+    <div id="about">
+      <h4 class="font-weight-bold">Contact</h4>
+      <p class="mb-2" data-aos="fade-up"><object data="{% static 'img/website.svg' %}" type="image/svg+xml" class="svg" width="20" style="margin: 0px 3px 0px 3px;"></object> <b>Website:</b> <br /> {{ data.website }}</p>
+      <p class="mb-2" data-aos="fade-up"><object data="{% static 'img/location.svg' %}" type="image/svg+xml" class="svg" width="25"></object> <b>Address:</b> <br /> {{ data.address }}</p>
+      <p class="mb-2" data-aos="fade-up" data-aos-delay="100"><object data="{% static 'img/email.svg' %}" type="image/svg+xml" class="svg" width="22" style="margin: 0px 2px 0px 2px;"></object> <b>Email:</b> <br />{{ user.email }}</p>
+      <p data-aos="fade-up" data-aos-delay="200"><object data="{% static 'img/call.svg' %}" type="image/svg+xml" class="svg" width="25"></object> <b>Telephone:</b> <br />0{{ data.telp }}</p>
+    </div>
+    <!-- Social Media -->
+    <div id="social-media" class="mt-2">
+      <h4 class="font-weight-bold">Social Network</h4><br />
+      <a href="{{ data.social|toObj:'fb' }}"><img class="ml-1 m-1" src="{% static 'img/fb.svg' %}" alt="fb" width="42" data-aos="zoom-in"></a>
+      <a href="{{ data.social|toObj:'ig' }}"><img class="m-1" src="{% static 'img/ig.svg' %}" alt="ig" width="40" data-aos="zoom-in" data-aos-delay="100"></a>
+      <a href="{{ data.social|toObj:'wa' }}"><img class="m-1" src="{% static 'img/wa.svg' %}" alt="wa" width="40" data-aos="zoom-in" data-aos-delay="200"></a>
+      <a href="{{ data.social|toObj:'tw' }}"><img class="m-1" src="{% static 'img/tw.svg' %}" alt="tw" width="40" data-aos="zoom-in" data-aos-delay="300"></a>
+      <a href="{{ data.social|toObj:'in' }}"><img class="m-1" src="{% static 'img/in.svg' %}" alt="in" width="40" data-aos="zoom-in" data-aos-delay="400"></a>
+    </div>
+    <!-- Education -->
+    <div id="education" class="mt-4">
+      <h4 class="font-weight-bold">Education</h4>
+       <div class="ml-2 mt-3">
+      {% if data.education %}
+        {% for x in data.education|toObj %}
+      	  <div data-aos="fade-right">
+        		<h5 class="font-weight-bold">{{ x.awal }} - {{ x.akhir }}</h5>
+        		<h5>{{ x.instansi }}</h5>
+        		<p>{{ x.lokask }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- RIGHT -->
+  <div class="col-md-7 col-lg-8 pt-4 pb-4 my-container" id="right">
+    <!-- Visi Misi -->
+    <div id="visi-misi">
+      <h4 class="font-weight-bold">Vision & Mision</h4>
+      <p class="text-justify pl-1 pr-1" data-aos="zoom-out">
+          {{ data.vision }}
+      </p>
+    </div>
+    <!-- Skilss -->
+    <div id="skills">
+      <h4 class="font-weight-bold">Skills</h4>
+      <div class="row">
+        {% if data.skill %}
+        <div class="col-md-6 ml-2">
+          {% for x in data.skill|toObj %}
+            {% if forloop.counter0 < 5 %}
+            <h5 data-aos="fade-left">{{ x.skill }} ({{ x.level }})</h5>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="col-md-5 ml-2 mar-min10">
+          {% for x in data.skill|toObj %}
+            {% if forloop.counter0 > 4 %}
+            <h5 data-aos="fade-left">{{ x.skill }} ({{ x.level }})</h5>
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Achievement -->
+    <div id="achievement" class="mt-3">
+      <h4 class="font-weight-bold">Achievement</h4>
+      <div class="ml-2 mt-3">        
+        {% if data.achievement %}
+        {% for x in data.achievement|toObj %}
+            <div data-aos="fade-left">
+              <h5>{{ x.prestasi }}</h5>
+              <p class="font-weight-normal">{{ x.tahun }} - {{ x.tempat }}</p>
+            </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+    <!-- Experience -->
+    <div id="experience" class="mt-4">
+      <h4 class="font-weight-bold">Experience</h4>
+      <div class="ml-2 mt-3">
+        {% if data.experience %}
+            {% for x in data.experience|toObj %}
+      		<h5 data-aos="fade-left">{{ x.experience }}</h5>
+      		<span class="d-block" data-aos="fade-left">{{ x.tahun }} - {{ x.tempat }}</span>
+      		<p data-aos="fade-up">
+      		    {{ x.description }}
+      		</p>
+            <hr />
+            {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% include "navigation.html" %}
+{% endblock %}

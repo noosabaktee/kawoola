@@ -1,0 +1,98 @@
+h4{
+  display: inline-block;
+  border-bottom: 5px solid;
+}
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+}
+ul.timeline:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    left: 14px;
+    width: 3px;
+    height: 100%;
+    z-index: 400;
+}
+ul.timeline > li {
+    margin: 20px 0;
+}
+ul.timeline > li:before {
+    content: ' ';
+    background: rgb(52,58,64);
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid white;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
+
+ul.list-skill {
+    list-style-type: none;
+    position: relative;
+    margin-top: -5px;
+}
+
+ul.list-skill li {
+    margin: 15px -10px;
+}
+
+ul.list-skill li:before {
+    content: ' ';
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgb(52,58,64);
+    margin-top: 5px;
+    left: -20px;
+    width: 12px;
+    height: 12px;
+    z-index: 400;
+}
+
+ol.achievement-list {
+    position: relative;
+    margin-top: 20px;
+}
+
+ol.achievement-list > li {
+    margin: -10px -15px;
+    font-size: 1.3rem !important;
+}
+
+ol.achievement-list > li:before {
+    display: inline-block;
+    position: absolute;
+    z-index: 400;
+}
+
+ul.experience-list {
+    list-style-type: none;
+    position: relative;
+}
+
+ul.experience-list > li {
+    margin: 20px -15px;
+    padding-left: 5px;
+}
+
+ul.experience-list > li:before {
+    content: ' ';
+    display: inline-block;
+    position: absolute;
+    background-color: rgb(52,58,64);
+    margin-top: 8px;
+    left: 5px;
+    width: 15px;
+    height: 4px;
+    z-index: 400;
+}
+
+
+

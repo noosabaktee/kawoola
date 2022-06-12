@@ -1,0 +1,57 @@
+{% load tags %}
+<!-- COLOR -->
+<div class="my-card">
+    <h4 class="font-weight-bold">Color</h4>
+    <div class="sub-content">
+        <div id="color-1" class="mb-2 py-4" style="background-color: {{ data.color|toObj:'bg-1' }}">
+            <span style="color: {{ data.color|toObj:'text-1' }}" class="font-weight-bold">Color 1</span>
+        </div>
+        <div id="color-2" class="py-4" style="background-color: {{ data.color|toObj:'bg-2' }}">
+            <span style="color: {{ data.color|toObj:'text-2' }}" class="font-weight-bold">Color 2</span>
+        </div>
+        <button class="btn btn-outline-abdi btn-sm mt-2"  data-toggle="modal" data-target="#updateColor">Update Color</button>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="updateColor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="modal-title h4" id="exampleModalLabel">Update Color</span>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="{% url 'update_color' %}" method="POST" accept-charset="utf-8">
+                {% csrf_token %}
+                <span class="font-weight-bold h5">Color 1</span>
+                <div class="form-row">
+                    <div class="col-6">
+                        <label for="bg-1">Background 1</label>
+                        <input class="color-picker form-control" name="bg-1" id="bg-1" required="" value="{{ data.color|toObj:'bg-1' }}"/>
+                    </div>
+                    <div class="col-6">
+                       <label for="text-1">Text 1</label>
+                       <input class="color-picker form-control"name="text-1" id="text-1" required="" value="{{ data.color|toObj:'text-1' }}"/>
+                    </div>
+                </div>
+                <br />
+                <span class="font-weight-bold h5">Color 2</span>
+                <div class="form-row">
+                    <div class="col-6">
+                       <label for="bg-2">Background 2</label>
+                        <input class="color-picker form-control"name="bg-2" id="bg-2" required="" value="{{ data.color|toObj:'bg-2' }}"/>
+                    </div>
+                    <div class="col-6">
+                       <label for="text-2">Text 2</label>
+                       <input class="color-picker form-control" name="text-2" id="text-2" required="" value="{{ data.color|toObj:'text-2' }}"/>
+                    </div>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

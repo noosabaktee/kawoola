@@ -1,0 +1,88 @@
+{% load static %}
+{% load tags %}
+<!-- SOCIAL -->
+<div class="my-card">
+  <h4 class="font-weight-bold">Social</h4>
+  <div class="sub-content">
+    {% if data.social %}
+        {% if data.social|toObj:"fb" %}
+        <img src="{% static 'img/fb.svg' %}" width="45" class="mr-1">
+        {% endif %}
+        {% if data.social|toObj:"ig" %}
+        <img src="{% static 'img/ig.svg' %}" width="45" class="mr-1">
+        {% endif %}
+        {% if data.social|toObj:"wa" %}
+        <img src="{% static 'img/wa.svg' %}" width="45" class="mr-1">
+        {% endif %}
+        {% if data.social|toObj:"tw" %}
+        <img src="{% static 'img/tw.svg' %}" width="45" class="mr-1">
+        {% endif %}
+        {% if data.social|toObj:"in" %}
+        <img src="{% static 'img/in.svg' %}" width="45" class="mr-1">
+        {% endif %}
+    {% else %}
+        <p class="text-center">Tidak ada</p>
+    {% endif %}
+    <br />
+    <button class="mt-2 btn btn-outline-abdi btn-sm"  data-toggle="modal" data-target="#updateSocial">Edit</button>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="updateSocial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="modal-title h4" id="exampleModalLabel">Update Social</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'update_social' %}" id="social-form" method="POST" accept-charset="utf-8">
+            <div class="form-row social-media">
+                {% csrf_token %}
+                  <div class="col-1">
+                      <label for="fb"><img src="{% static 'img/fb.svg' %}" width="35"></label>
+                    </div>
+                    <div class="col-11">
+                      <input type="text" name="fb" id="fb" class="form-control" placeholder="Link Facebook" value="{{ data.social|toObj:'fb' }}">
+                    </div>
+                  </div>
+                  <div class="form-row social-media mt-2">
+                    <div class="col-1">
+                      <label for="ig"><img src="{% static 'img/ig.svg' %}" width="35"></label>
+                    </div>
+                    <div class="col-11">
+                      <input type="text" name="ig" id="ig" class="form-control" placeholder="Link Instagram" value="{{ data.social|toObj:'ig' }}">
+                    </div>
+                  </div>
+                  <div class="form-row social-media mt-2">
+                    <div class="col-1">
+                      <label for="wa"><img src="{% static 'img/wa.svg' %}" width="35"></label>
+                    </div>
+                    <div class="col-11">
+                      <input type="number" name="wa" id="wa" class="form-control" placeholder="No. Wa (62)" value="{{ data.social|toObj:'wa' }}">
+                    </div>
+                  </div>
+                  <div class="form-row social-media mt-2">
+                    <div class="col-1">
+                      <label for="tw"><img src="{% static 'img/tw.svg' %}" width="35"></label>
+                    </div>
+                    <div class="col-11">
+                      <input type="text" name="tw" id="tw" class="form-control" placeholder="Twitter" value="{{ data.social|toObj:'tw' }}">
+                    </div>
+                  </div>
+                  <div class="form-row social-media mt-2">
+                    <div class="col-1">
+                      <label for="in"><img src="{% static 'img/in.svg' %}" width="35"></label>
+                    </div>
+                    <div class="col-11">
+                      <input type="text" name="in" id="in" class="form-control" placeholder="Linkedin" value="{{ data.social|toObj:'in' }}">
+                    </div>
+                  </div>
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block 'title' %}Profile - Kawoola{% endblock %}
+{% block 'content' %}
+{% for message in messages %}
+    {% if message.tags == 'success' %}
+        <p class="alert alert-success">{{ message }}</p>
+    {% else %}
+        <p class="alert alert-danger">{{ message }}</p>
+    {% endif %}
+{% endfor %}
+<div class="row">
+    <div class="col-md-4">
+        {% include 'profile.html' %}
+        {% include 'update_template.html' %}
+        {% include 'color.html' %}
+        {% include 'social.html' %}
+    </div>
+    <div class="col-md-8" id="abdi-right">
+        {% include 'description.html' %}
+        <br />
+        {% include 'vision.html' %}
+        <br />
+        {% include 'education.html' %}
+        <br />
+        {% include 'skill.html' %}
+        <br />
+        {% include 'achievement.html' %}
+        <br />
+        {% include 'experience.html' %}
+    </div>
+</div>
+<br>
+{% endblock %}

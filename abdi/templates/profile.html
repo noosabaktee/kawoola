@@ -1,0 +1,48 @@
+{% load static %}
+<!-- PROFILE -->
+<div class="my-card">
+  <h4 class="font-weight-bold">Profile</h4>
+  <div class="sub-content">
+    <center>
+        {% include 'photo.html' %}
+    </center>
+    <span class="font-weight-bold d-block">Name: </span>
+    <span id="val-name">{{ user.first_name }} {{ user.last_name }}</span>
+    <span class="font-weight-bold d-block">Email: </span>
+    <span id="val-email">{{ user.email }}</span>
+    <span class="font-weight-bold d-block">Website: </span>
+    <span id="val-website">{{ data.website }}</span>
+    <span class="font-weight-bold d-block">Address: </span>
+    <span id="val-address">{{ data.address }}</span>
+    <span class="font-weight-bold d-block">Telp: </span>
+    <span id="val-telp">{% if data.telp %}0{{ data.telp }}{% endif %}</span><br>
+    <button class="btn btn-outline-abdi mt-3 btn-sm"  data-toggle="modal" data-target="#exampleModal">Update Profile</button>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="modal-title h4" id="exampleModalLabel">Modal title</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'update_profile' %}" method="POST" accept-charset="utf-8" id="form-profile">
+            {% csrf_token %}
+            <label for="name">Name</label>
+            <input type="text" class="mb-2 form-control" required="" name="name" id="name" value="{{ user.first_name }} {{ user.last_name }}"/>
+            <label for="website">Website</label>
+            <input type="text" class="mb-2 form-control" required="" name="website" id="website" value="{{ data.website }}"/>
+            <label for="address">Address</label>
+            <input type="text" class="mb-2 form-control" required="" name="address" id="address" value="{{ data.address }}"/>
+            <label for="telp">Telp</label>
+            <input type="number" class="form-control" required="" name="telp" id="telp" value="{% if data.telp %}0{{ data.telp }}{% endif %}"/>
+            <button type="submit" class="btn btn-primary mt-2">Edit</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

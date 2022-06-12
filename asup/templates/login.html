@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block 'title' %}Login - Kawoola{% endblock %}
+{% block 'content' %}
+<h4 class="text-center">Login</h4>
+    {% for message in messages %}
+        {% if message.tags == 'success' %}
+            <p class="alert alert-success">{{ message }}</p>
+        {% else %}
+            <p class="alert alert-danger">{{ message }}</p>
+        {% endif %}
+     {% endfor %}
+     <div class="row justify-content-md-center">
+         <div class="col-md-6">
+            <form action="" method="POST" accept-charset="utf-8">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary mb-1">Masuk</button>
+                <span class="d-block">Belum punya akun? <a href="{% url 'register' %}">Daftar</a></span>
+            </form>
+            <span class="text-primary d-block" data-toggle="modal" data-target="#exampleModalCenter">
+              Lupa kata sandi
+            </span>
+         </div>
+     </div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Lupa kata sandi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'get_token' %}" method="POST" accept-charset="utf-8">
+            {% csrf_token %}
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" id="email" required="" placeholder="Masukkan email"/>
+            <button type="submit" class="btn btn-primary btn-block mt-2">Kirim</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

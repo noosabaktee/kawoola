@@ -1,0 +1,33 @@
+{% load static %}
+<!-- VISION -->
+<div>
+  <h4 class="font-weight-bold">
+      Vision
+      <button class="btn btn-abdi btn-sm" data-toggle="modal" data-target="#updateVision">Edit</button>
+  </h4>
+  <div>
+    {% if data.vision %}
+    <span class="d-block"> {{data.vision}} </span>
+    {% endif %}
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="updateVision" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="modal-title h4" id="exampleModalLabel">Update Vision</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'update_vision' %}" method="POST" accept-charset="utf-8">
+            {% csrf_token %}
+            <textarea class="form-control" name="vision" id="vision" rows="8" cols="40" required="">{{ data.vision }}</textarea>
+            <button type="submit" class="btn btn-primary mt-2">Edit</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
