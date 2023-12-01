@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'delete',
     'setpassword',
     'show',
+    'kawoola'
 ]
 
 MIDDLEWARE = [
@@ -141,4 +142,7 @@ LOGIN_URL = 'login'
 
 MEDIA_ROOT = 'static/img/'
 
-SITE_URL = 'http://127.0.0.1:8000/' # this will reduce the Sites framework db call.
+# SITE_URL = 'http://127.0.0.1:8000/' # this will reduce the Sites framework db call.
+SITE_URL = 'https://kawoola.vercel.app/' # this will reduce the Sites framework db call.
+
+WSGI_APPLICATION = 'vercel_app.wsgi.app'
