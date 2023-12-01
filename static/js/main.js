@@ -7,6 +7,20 @@ $('#content').show();
 //     duration: 1200
 //   });
 // })
+window.jsPDF = window.jspdf.jsPDF;
+
+$('.to-pdf').click(function(){
+  $(this).hide()
+  html2canvas( document.querySelector("#content"), { logging: true, letterRendering: 1, allowTaint: false,  useCORS: true } ).then(canvas => { 
+    var a = document.createElement('a');
+    img = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+    var doc = new jsPDF('l', 'px', [$("body").width(),$("body").height()]);
+    doc.addImage(img, 'JPEG', 0, 0,$("body").width(), $("body").height());
+    doc.save($(this).attr("name") + ".pdf");
+    $('.to-pdf').show()
+  })
+  
+})
 
 $('.show-hide-pw').click(function(){
     var x = $('input[name="password1"]');
@@ -24,7 +38,7 @@ let bg2 = $('body').attr('bg2');
 let text2 = $('body').attr('text2');
 
 window.onload = function () {
-   var svg = document.querySelectorAll(".svg");
+   var svg = document.querySelectorAll("object");
    Array.from(svg).forEach((element, index) => {
     // conditional logic here.. access element
     $(element).css('marginBottom', '-5px')
@@ -34,8 +48,11 @@ window.onload = function () {
     if ($('#riwayat-3').length > 0) {
       text1 = text2
     }
-
     svgDoc.querySelector("path").style.fill = text1
+    svg = svgDoc.querySelector("svg")
+    imgElement = $(element).parent().find('span')
+    imgElement.html(svg)
+    $(element).remove()
   });
 }
 
@@ -240,8 +257,10 @@ function readURL(input) {
     }
 }
 
+$('.edit-photo-btn').hide()
 $("#photo").change(function(){
     readURL(this);
+    $('.edit-photo-btn').show()
 });
 
 autosize($('textarea'));

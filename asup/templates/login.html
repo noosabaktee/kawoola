@@ -2,26 +2,26 @@
 {% block 'title' %}Login - Kawoola{% endblock %}
 {% block 'content' %}
 <h4 class="text-center">Login</h4>
-    {% for message in messages %}
-        {% if message.tags == 'success' %}
-            <p class="alert alert-success">{{ message }}</p>
-        {% else %}
-            <p class="alert alert-danger">{{ message }}</p>
-        {% endif %}
-     {% endfor %}
-     <div class="row justify-content-md-center">
-         <div class="col-md-6">
-            <form action="" method="POST" accept-charset="utf-8">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary mb-1">Masuk</button>
-                <span class="d-block">Belum punya akun? <a href="{% url 'register' %}">Daftar</a></span>
-            </form>
-            <span class="text-primary d-block" data-toggle="modal" data-target="#exampleModalCenter">
-              Lupa kata sandi
-            </span>
-         </div>
-     </div>
+<div class="row justify-content-md-center">
+  <div class="col-md-6">
+      {% for message in messages %}
+          {% if message.tags == 'success' %}
+              <p class="alert alert-success">{{ message }}</p>
+          {% else %}
+              <p class="alert alert-danger">{{ message }}</p>
+          {% endif %}
+      {% endfor %}
+      <form action="" method="POST" accept-charset="utf-8">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary mb-1">Masuk</button>
+          <span class="d-block">Belum punya akun? <a href="{% url 'register' %}">Daftar</a></span>
+      </form>
+      <span  role="button"  class="text-primary d-block" data-toggle="modal" data-target="#exampleModalCenter">
+        Lupa kata sandi
+      </span>
+    </div>
+</div>
 
 
 

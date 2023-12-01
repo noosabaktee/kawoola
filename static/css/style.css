@@ -11,9 +11,20 @@ html{
   font-family: 'Poppins', sans-serif;
 }
 
+.to-pdf{
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+}
+
 #content{
   display: none;
 }
+
 
 #loading {
   display: flex;

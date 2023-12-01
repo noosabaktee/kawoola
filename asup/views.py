@@ -43,7 +43,8 @@ def register(request):
                     'photo': "https://ui-avatars.com/api/?name={}&length=1&%20background=random".format(u),
                     'template': 1,
                     'color': color,
-                    'description': 'Tidak ada'
+                    'description': 'Tidak ada',
+                    'social': {'fb': '', 'ig': '', 'wa': '', 'tw': '', 'in': ''}
                 }
                 Data.objects.create(**data)
                 login(request, user)

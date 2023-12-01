@@ -2,25 +2,25 @@
 {% block 'title' %}Register - Kawoola{% endblock %}
 {% block 'content' %}
 <h4 class="text-center">Register</h4>
-    {% for message in messages %}
-        {% if message %}
-            <p class="alert alert-danger">{{ message }}</p>
-        {% endif %}
-     {% endfor %}
-     <div class="row justify-content-md-center">
-         <div class="col-md-6">
-            <form action="" method="POST" accept-charset="utf-8">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <div class="form-check float-right">
-                  <input class="form-check-input show-hide-pw" type="checkbox" value="" id="defaultCheck1">
-                  <label class="form-check-label" for="defaultCheck1">
-                      Show Password
-                  </label>
-                </div>
-                <button type="submit" class="btn btn-primary mb-1">Daftar</button>
-                <p>Sudah punya akun? <a href="{% url 'login' %}">Masuk</a></p>
-            </form>
-         </div>
-     </div>
+<div class="row justify-content-md-center">
+    <div class="col-md-6">
+        {% for message in messages %}
+            {% if message %}
+                <p class="alert alert-danger">{{ message }}</p>
+            {% endif %}
+         {% endfor %}
+        <form action="" method="POST" accept-charset="utf-8">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-check float-right">
+                <input class="form-check-input show-hide-pw" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                    Show Password
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary mb-1">Daftar</button>
+            <p>Sudah punya akun? <a href="{% url 'login' %}">Masuk</a></p>
+        </form>
+    </div>
+</div>
 {% endblock %}

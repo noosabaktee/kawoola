@@ -23,7 +23,7 @@
         <div class="modal-body">
           <form action="{% url 'update_vision' %}" method="POST" accept-charset="utf-8">
             {% csrf_token %}
-            <textarea class="form-control" name="vision" id="vision" rows="8" cols="40" required="">{{ data.vision }}</textarea>
+            <textarea class="form-control" name="vision" id="vision" rows="8" cols="40" required="">{% if data.vision %}{{data.vision}}{% endif %}</textarea>
             <button type="submit" class="btn btn-primary mt-2">Edit</button>
         </form>
         </div>

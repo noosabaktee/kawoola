@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -140,3 +140,5 @@ LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
 
 MEDIA_ROOT = 'static/img/'
+
+SITE_URL = 'http://127.0.0.1:8000/' # this will reduce the Sites framework db call.
