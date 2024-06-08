@@ -9,4 +9,6 @@ def imgbb(image):
             "image": base64.b64encode(file.read()),
         }
         res = requests.post(url, payload)
-        return res.json()['data']['display_url']
+        link = res.json()['data']['display_url']
+        link = link.replace(".co/",".co.com/")
+        return link

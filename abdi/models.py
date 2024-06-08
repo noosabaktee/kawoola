@@ -9,7 +9,7 @@ class Data(models.Model):
     description = models.TextField(null=True)
     website = models.CharField(max_length=100,null=True)
     address = models.TextField(null=True)
-    telp = models.IntegerField(null=True)
+    telp = models.TextField(null=True)
     social = models.TextField(null=True)
     education = models.TextField(null=True)
     vision = models.TextField(null=True)

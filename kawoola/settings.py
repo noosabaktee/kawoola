@@ -155,4 +155,3 @@ MEDIA_ROOT = 'static/img/'
 
 # SITE_URL = 'http://127.0.0.1:8000/' # this will reduce the Sites framework db call.
 SITE_URL = 'https://kawoola.up.railway.app/' # this will reduce the Sites framework db call.
-
