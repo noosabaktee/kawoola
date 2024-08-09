@@ -6,9 +6,13 @@
       <button class="btn btn-abdi btn-sm" data-toggle="modal" data-target="#updateVision">Edit</button>
   </h4>
   <div>
-    {% if data.vision %}
-    <span class="d-block"> {{data.vision}} </span>
-    {% endif %}
+    <span class="d-block"> 
+      {% if data.vision %}
+      {{data.vision}} 
+      {% else %}
+      Tidak ada
+      {% endif %}
+    </span>
   </div>
   <!-- Modal -->
   <div class="modal fade" id="updateVision" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

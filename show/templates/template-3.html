@@ -28,7 +28,7 @@ id="riwayat-3"
         <p class="mb-2" data-aos="fade-up"><object data="{% static 'img/website.svg' %}" type="image/svg+xml" class="svg" width="20" style="margin: 0px 3px 0px 3px;"></object> <b>Website:</b> <br /> {{ data.website }}</p>
         <p class="mb-2" data-aos="fade-up"><object data="{% static 'img/location.svg' %}" type="image/svg+xml" class="svg" width="25"></object> <b>Address:</b> <br /> {{ data.address }}</p>
         <p class="mb-2" data-aos="fade-up" data-aos-delay="100"><object data="{% static 'img/email.svg' %}" type="image/svg+xml" class="svg" width="22" style="margin: 0px 2px 0px 2px;"></object> <b>Email:</b> <br />{{ user.email }}</p>
-        <p data-aos="fade-up" data-aos-delay="200"><object data="{% static 'img/call.svg' %}" type="image/svg+xml" class="svg" width="25"></object> <b>Telephone:</b> <br />0{{ data.telp }}</p>
+        <p data-aos="fade-up" data-aos-delay="200"><object data="{% static 'img/call.svg' %}" type="image/svg+xml" class="svg" width="25"></object> <b>Telephone:</b> <br />{{ data.telp }}</p>
       </div>
       <!-- Social Media -->
       <div id="social-media" class="mt-2">
@@ -62,7 +62,7 @@ id="riwayat-3"
   <div class="col-md-7 col-lg-8 pt-4 pb-4 my-container">
     <!-- Visi Misi -->
     <div id="visi-misi">
-      <h4 class="font-weight-bold">Vision & Mision</h4>
+      <h4 class="font-weight-bold">Vision</h4>
       <p class="text-justify pl-1 pr-1" data-aos="zoom-out">
         {{ data.vision }}
       </p>

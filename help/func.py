@@ -1,11 +1,12 @@
 import base64
 import requests
+from os import getenv
 
 def imgbb(image):
     with open(image, "rb") as file:
         url = "https://api.imgbb.com/1/upload"
         payload = {
-            "key": "fdcf0312cf01b248646f62051c0cf9b4",
+            "key": getenv('IMGBB_KEY'),
             "image": base64.b64encode(file.read()),
         }
         res = requests.post(url, payload)

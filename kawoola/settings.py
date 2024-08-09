@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from os import getenv
+from dotenv import load_dotenv
+load_dotenv('./.env')
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p&h=iepi9uvz9li#qk(59u(57c_^88#*-f^9=712+fkh2)ux59'
+SECRET_KEY = getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -90,13 +94,16 @@ WSGI_APPLICATION = 'kawoola.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kawoola',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': getenv('PGDATABASE'),
+    'USER': getenv('PGUSER'),
+    'PASSWORD': getenv('PGPASSWORD'),
+    'HOST': getenv('PGHOST'),
+    'PORT': getenv('PGPORT', 5432),
+    'OPTIONS': {
+      'sslmode': 'require',
+    },
+  }
 }
 
 
@@ -137,7 +144,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
@@ -153,5 +160,4 @@ LOGIN_URL = 'login'
 
 MEDIA_ROOT = 'static/img/'
 
-# SITE_URL = 'http://127.0.0.1:8000/' # this will reduce the Sites framework db call.
-SITE_URL = 'https://kawoola.up.railway.app/' # this will reduce the Sites framework db call.
+SITE_URL = 'http://127.0.0.1:8000/' # this will reduce the Sites framework db call.

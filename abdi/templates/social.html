@@ -4,7 +4,7 @@
 <div class="my-card">
   <h4 class="font-weight-bold">Social</h4>
   <div class="sub-content">
-    {% if data.social %}
+    {% if data.social|toObj:"fb" or data.social|toObj:"ig" or data.social|toObj:"wa" or data.social|toObj:"tw" or data.social|toObj:"in" %}
         {% if data.social|toObj:"fb" %}
         <img src="{% static 'img/fb.svg' %}" width="45" class="mr-1">
         {% endif %}
@@ -21,7 +21,7 @@
         <img src="{% static 'img/in.svg' %}" width="45" class="mr-1">
         {% endif %}
     {% else %}
-        <p class="text-center">Tidak ada</p>
+    <span>Tidak ada</span>
     {% endif %}
     <br />
     <button class="mt-2 btn btn-outline-primary btn-sm"  data-toggle="modal" data-target="#updateSocial">Edit</button>
@@ -60,7 +60,7 @@
                       <label for="wa"><img src="{% static 'img/wa.svg' %}" width="35"></label>
                     </div>
                     <div class="col-11">
-                      <input type="number" name="wa" id="wa" class="form-control" placeholder="No. Wa (62)" value="{{ data.social|toObj:'wa' }}">
+                      <input type="text" name="wa" id="wa" class="form-control" placeholder="Nomor WA" value="{{ data.social|toObj:'wa' }}">
                     </div>
                   </div>
                   <div class="form-row social-media mt-2">

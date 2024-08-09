@@ -60,6 +60,8 @@ def update_vision(request):
 @login_required(login_url=settings.LOGIN_URL)
 def update_profile(request):
     if request.POST:
+        birth_place = request.POST['birth-place']
+        birth_date = request.POST['birth-date']
         name = request.POST['name']
         address = request.POST['address']
         telp = request.POST['telp']
@@ -70,6 +72,7 @@ def update_profile(request):
             'last_name': " ".join(last)
         }
         data = {
+            'ttl': f"{birth_place}, {birth_date}",
             'website': website,
             'address': address,
             'telp': telp
