@@ -1,7 +1,10 @@
 <!-- FOOTER -->
 <footer id="footer" class="text-center mt-5 p-3 bg-light">
-    <p>&copy;Copyright 2021 by Kawoola <br>
-Dibuat sepenuh hati di Karawang, Indonesia <br>
-PT. Harta Tahta Rama</p>
+    <p>&copy;Copyright <span id="year-footer"></span> by Kawoola <br>
+Dibuat sepenuh hati di Karawang, Indonesia <br></p>
     <p>Illustration by Icons 8 from Ouch!</p>
 </footer>
+<script>
+    var currentYear = new Date().getFullYear();
+    document.getElementById('year-footer').textContent = currentYear;
+</script>

@@ -145,6 +145,14 @@ input[type="file"] {
     display: inline-block;
 }
 
+#achievement, #experience{
+  width: 95%;
+}
+
+#experience{
+  text-align: justify;
+}
+
 @media screen and (max-width:576px){
   .mar-min15{
     margin-top: -15px;

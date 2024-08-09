@@ -15,7 +15,11 @@ def del_edu(request):
         index = int(request.POST['index'])
         list = ast.literal_eval(Data.objects.get(user=user).education)
         del list[index]
-        Data.objects.filter(user=user).update(education=list)
+        if(len(list) > 0):
+            Data.objects.filter(user=user).update(education=list)
+        else:
+            Data.objects.filter(user=user).update(education="")
+
         messages.error(request, 'Data berhasil dihapus!')
         
     return redirect('abdi')
@@ -28,7 +32,11 @@ def del_achievement(request):
         index = int(request.POST['index'])
         list = ast.literal_eval(Data.objects.get(user=user).achievement)
         del list[index]
-        Data.objects.filter(user=user).update(achievement=list)
+        if(len(list) > 0):
+            Data.objects.filter(user=user).update(achievement=list)
+        else:
+            Data.objects.filter(user=user).update(achievement="")
+
         messages.error(request, 'Data berhasil dihapus!')
         
     return redirect('abdi')
@@ -41,7 +49,11 @@ def del_experience(request):
         index = int(request.POST['index'])
         list = ast.literal_eval(Data.objects.get(user=user).experience)
         del list[index]
-        Data.objects.filter(user=user).update(experience=list)
+        if(len(list) > 0):
+            Data.objects.filter(user=user).update(experience=list)
+        else:
+            Data.objects.filter(user=user).update(experience="")
+
         messages.error(request, 'Data berhasil dihapus!')
         
     return redirect('abdi')
@@ -54,7 +66,11 @@ def del_skill(request):
         index = int(request.POST['index'])
         list = ast.literal_eval(Data.objects.get(user=user).skill)
         del list[index]
-        Data.objects.filter(user=user).update(skill=list)
+        if(len(list) > 0):
+            Data.objects.filter(user=user).update(skill=list)
+        else:
+            Data.objects.filter(user=user).update(skill="")
+
         messages.error(request, 'Data berhasil dihapus!')
         
     return redirect('abdi')

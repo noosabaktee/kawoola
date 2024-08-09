@@ -181,6 +181,17 @@ $('.btn-edu').click(function(){
     e.append(new_element)
 })
 
+$('.add-edu').click(function(){
+  parent = $(this).parent().parent()
+  e = $('#form-edu')
+  e.find('#instansi').val("")
+  e.find('#awal').val("")
+  e.find('#akhir').val("")
+  e.find('#jurusan').val("")
+  e.attr('action', e.attr('create'))
+  e.find('button').html("Add")
+})
+
 $('.btn-ach').click(function(){
     parent = $(this).parent().parent()
     p = parent.find('.prestasi').html()
@@ -195,6 +206,15 @@ $('.btn-ach').click(function(){
     index = $(this).attr('index')
     new_element = '<input type="hidden" name="index" value="'+index+'" />'
     e.append(new_element)
+})
+
+$('.add-ach').click(function(){
+  e = $('#form-ach')
+  e.find('#prestasi').val("")
+  e.find('#tahun').val("")
+  e.find('#tempat').val("")
+  e.attr('action', e.attr('create'))
+  e.find('button').html("Add")
 })
 
 $('.btn-exp').click(function(){
@@ -215,6 +235,16 @@ $('.btn-exp').click(function(){
     e.append(new_element)
 })
 
+$('.add-exp').click(function(){
+  e = $('#form-exp')
+  e.find('#experience').val("")
+  e.find('#tahun').val("")
+  e.find('#tempat').val("")
+  e.find('#description').val("")
+  e.attr('action', e.attr('create'))
+  e.find('button').html("Add")
+})
+
 $('.btn-skill').click(function(){
     parent = $(this).parent().parent()
     s = parent.find('.skill').html()
@@ -227,6 +257,14 @@ $('.btn-skill').click(function(){
     index = $(this).attr('index')
     new_element = '<input type="hidden" name="index" value="'+index+'" />'
     e.append(new_element)
+})
+
+$('.add-skill').click(function(){
+  e = $('#form-skill')
+  e.find('#skill').val("")
+  e.find('#level').val("")
+  e.attr('action', e.attr('create'))
+  e.find('button').html("Add")
 })
 
 function PreviewImage() {

@@ -6,9 +6,13 @@
     <button class="btn btn-abdi btn-sm" data-toggle="modal" data-target="#updateDescription">Edit</button>
   </h4>
   <div>
+    <span class="d-block">
     {% if data.description %}
-    <span class="d-block">{{ data.description }}</span>
+    {{ data.description }}
+    {% else %}
+    Tidak ada
     {% endif %}
+    </span>
   </div>
   <!-- Modal -->
   <div class="modal fade" id="updateDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

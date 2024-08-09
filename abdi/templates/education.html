@@ -5,7 +5,7 @@
   <h4 class="font-weight-bold">
     Education
     {% if data.education|count < 5 %}
-      <button class="btn btn-abdi btn-sm" data-toggle="modal" data-target="#formEducation">Add</button>
+      <button class="btn btn-abdi add-edu btn-sm" data-toggle="modal" data-target="#formEducation">Add</button>
     {% endif %}
   </h4>
   <div>
@@ -41,7 +41,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="{% url 'add_edu' %}" id="form-edu" method="POST" accept-charset="utf-8" update="{% url 'update_edu' %}">
+          <form action="{% url 'add_edu' %}" id="form-edu" method="POST" accept-charset="utf-8" create="{% url 'add_edu' %}" update="{% url 'update_edu' %}">
             {% csrf_token %}
             <label for="instansi">Nama</label>
             <input class="form-control" type="text" name="instansi" id="instansi" placeholder="Nama/Instansi" required=""/>
