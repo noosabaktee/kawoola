@@ -18,9 +18,9 @@
             <span class="description d-block">{{ x.description }}</span>
             <form name="form-del-exp" action="{% url 'del_exp' %}" method="POST" accept-charset="utf-8">
                 {% csrf_token %}
-                <span class="btn-exp mr-2 text-primary" index="{{ forloop.counter0 }}" data-toggle="modal" data-target="#formExperience">Edit</span>
+                <span class="btn-exp mr-2 text-primary" role="button" index="{{ forloop.counter0 }}" data-toggle="modal" data-target="#formExperience">Edit</span>
                 <input type="hidden" name="index" value="{{ forloop.counter0 }}" />
-                <span class="text-danger" onclick="if(confirm('Mau menghapus {{ x.experience }}?')){document.forms['form-del-exp'].submit()}">Delete</span>
+                <span class="text-danger" role="button" onclick="if(confirm('Mau menghapus {{ x.experience }}?')){document.forms['form-del-exp'].submit()}">Delete</span>
             </form>
         </div>
     {% endfor %}
@@ -46,7 +46,7 @@
             <div class="form-row mt-2">
               <div class="col-6">
                  <label for="tahun">Tahun</label>
-                <input type="number" name="tahun" class="form-control" id="tahun" placeholder="tahun" required="">
+                <input type="text" name="tahun" class="form-control" id="tahun" placeholder="tahun" required="">
               </div>
               <div class="col-6">
                 <label for="tempat">Tempat</label>

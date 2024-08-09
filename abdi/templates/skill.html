@@ -17,9 +17,9 @@
             <br>
             <form name="form-del-skill" action="{% url 'del_skill' %}" method="POST" accept-charset="utf-8">
                 {% csrf_token %}
-               <span class="btn-skill text-primary mr-2" index="{{ forloop.counter0 }}" data-toggle="modal" data-target="#formSkill">Edit</span>
+               <span class="btn-skill text-primary mr-2" role="button" index="{{ forloop.counter0 }}" data-toggle="modal" data-target="#formSkill">Edit</span>
                 <input type="hidden" name="index" value="{{ forloop.counter0 }}" />
-                <span class="text-danger" onclick="if(confirm('Mau menghapus {{ x.skill }}?')){document.forms['form-del-skill'].submit()}">Delete</span>
+                <span class="text-danger" role="button" onclick="if(confirm('Mau menghapus {{ x.skill }}?')){document.forms['form-del-skill'].submit()}">Delete</span>
             </form>
         </div>
     {% endfor %}

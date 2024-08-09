@@ -93,7 +93,7 @@ id="riwayat-2"
         {% for x in data.achievement|toObj %}
             <div data-aos="fade-left">
               <h5>{{ x.prestasi }}</h5>
-              <p class="font-weight-normal">{{ x.tahun }} - {{ x.tempat }}</p>
+              <p class="font-weight-normal">{{ x.tahun }}{% if x.tempat %} - {{ x.tempat }}{% endif %}</p>
             </div>
         {% endfor %}
         {% endif %}

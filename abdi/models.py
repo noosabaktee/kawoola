@@ -3,7 +3,6 @@ from django.db import models
 class Data(models.Model):
     #user = models.ForeignKey(User, on_delete=models.CASCADE)
     user = models.CharField(max_length=50)
-    ttl = models.CharField(max_length=100,null=True)
     photo = models.CharField(max_length=200,null=True)
     template = models.IntegerField(null=True)
     color = models.TextField(null=True)

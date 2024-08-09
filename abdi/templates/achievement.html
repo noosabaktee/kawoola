@@ -15,13 +15,13 @@
         <div id="achievement-{{forloop.counter}}" >
             <span class="my-font prestasi font-weight-bold">{{ x.prestasi }}</span> - 
             <span class="tahun font-weight-bold">{{ x.tahun }}</span> 
-            (<span class="tempat font-weight-bold">{{ x.tempat }}</span>)
+            <span class="tempat font-weight-bold">{% if x.tempat %}{{ x.tempat }}{% endif %}</span>
             <br />
             <form name="form-del-ach" action="{% url 'del_ach' %}" method="POST" accept-charset="utf-8">
                 {% csrf_token %}
-                <span class="btn-ach text-primary mr-2" index="{{ forloop.counter0 }}" data-toggle="modal" data-target="#formAchievement">Edit</span>
+                <span class="btn-ach text-primary mr-2" role="button" index="{{ forloop.counter0 }}" data-toggle="modal" data-target="#formAchievement">Edit</span>
                 <input type="hidden" name="index" value="{{ forloop.counter0 }}" />
-                <span class="text-danger" onclick="if(confirm('Mau menghapus {{ x.prestasi }}?')){document.forms['form-del-ach'].submit()}">Delete</span>
+                <span class="text-danger" role="button" onclick="if(confirm('Mau menghapus {{ x.prestasi }}?')){document.forms['form-del-ach'].submit()}">Delete</span>
             </form>
         </div>
     {% endfor %}
@@ -50,8 +50,8 @@
                 <input type="number" name="tahun" class="form-control" id="tahun" placeholder="tahun" required="">
               </div>
               <div class="col-6">
-                <label for="tempat">Tempat</label>
-                <input type="text" name="tempat" class="form-control" id="tempat" placeholder="tempat" required="">
+                <label for="tempat">Tempat (Optional)</label>
+                <input type="text" name="tempat" class="form-control" id="tempat" placeholder="tempat">
               </div>
             </div>
             <button type="submit" class="btn btn-primary mt-2">Add</button>

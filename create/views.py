@@ -16,7 +16,7 @@ def add_edu(request):
             'instansi': request.POST['instansi'],
             'awal': request.POST['awal'],
             'akhir': request.POST['akhir'],
-            'lokasi': request.POST['lokasi']
+            'jurusan': request.POST['jurusan']
         }
         list = Data.objects.get(user=user).education
         list = [] if not list else ast.literal_eval(list)

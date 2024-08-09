@@ -8,8 +8,6 @@
     </center>
     <span class="font-weight-bold d-block">Name: </span>
     <span id="val-name">{% if user.first_name %}{{ user.first_name }} {{ user.last_name }}{% else %}None{% endif %}</span>
-    <span class="font-weight-bold d-block">Tempat, Tanggal Lahir: </span>
-    <span id="val-name">{% if data.ttl %}{{ data.ttl }}{% else %}None{% endif %}</span>
     <span class="font-weight-bold d-block">Email: </span>
     <span id="val-email">{{ user.email }}</span>
     <span class="font-weight-bold d-block">Website: </span>
@@ -35,10 +33,6 @@
             {% csrf_token %}
             <label for="name">Name</label>
             <input type="text" class="mb-2 form-control" required="" name="name" id="name" value="{{ user.first_name }} {{ user.last_name }}"/>
-            <label for="birth-place">Tempat Lahir</label>
-            <input type="text" class="mb-2 form-control" required="" name="birth-place" id="birth-place" value="{{ user.first_name }} {{ user.last_name }}"/>
-            <label for="birth-date">Tanggal Lahir</label>
-            <input type="date" class="mb-2 form-control" required="" name="birth-date" id="birth-date" value=""/>
             <label for="website">Website</label>
             <input type="text" class="mb-2 form-control" required="" name="website" id="website" value="{{ data.website }}"/>
             <label for="address">Address</label>
