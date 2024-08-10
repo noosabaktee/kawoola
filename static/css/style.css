@@ -67,8 +67,8 @@ html{
 
 .my-card h4{
     /*background-color: rgb(40, 167, 69);*/
-    /* background-color: #75CFB8; */
-    background-color: #69baa5;
+    /* background-color: #74937b; */
+    background-color: #74937b;
     color: #f7f7f7;
     border-radius: 10px 10px 0px 0px;
     padding: 10px 5px 5px 10px;
@@ -104,6 +104,7 @@ html{
 .demo-for-mobile{
     margin-right: 5%;
     margin-left: 5%;
+    display: none;
 }
 
 input[type="file"] {
@@ -123,19 +124,19 @@ input[type="file"] {
 }
 
 .btn-outline-abdi{
-    border-bottom-color: #75CFB8;
-    border-top-color: #75CFB8;
-    border-right-color: #75CFB8;
-    border-left-color: #75CFB8;
-    color: #75CFB8;
+    border-bottom-color: #74937b;
+    border-top-color: #74937b;
+    border-right-color: #74937b;
+    border-left-color: #74937b;
+    color: #74937b;
 }
 
 .btn-abdi, .btn-abdi:hover, .btn-outline-abdi:hover{
-    background-color: #75CFB8;
-    border-bottom-color: #75CFB8;
-    border-top-color: #75CFB8;
-    border-right-color: #75CFB8;
-    border-left-color: #75CFB8;
+    background-color: #74937b;
+    border-bottom-color: #74937b;
+    border-top-color: #74937b;
+    border-right-color: #74937b;
+    border-left-color: #74937b;
     color: #FFFFFF;
 }
 
@@ -153,7 +154,26 @@ input[type="file"] {
   text-align: justify;
 }
 
+.margin-top-desktop{
+  margin-top: 40px;
+}
+
+#jumbotron{
+  margin-top: 60px;
+  margin-bottom: 70px;
+}
+
+/* FOR MOBILE */
 @media screen and (max-width:576px){
+  #jumbotron{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .margin-top-desktop{
+    margin-top: 0px;
+  }
+
   .mar-min15{
     margin-top: -15px;
   }
@@ -165,10 +185,7 @@ input[type="file"] {
   .footer{
     margin-bottom: 3rem !important;
   }
-}
 
-/* FOR MOBILE */
-@media (max-width: 768px) { 
   #show{
       margin-bottom: 30px;
   }
@@ -198,21 +215,4 @@ input[type="file"] {
       margin-bottom: 10px;
   }
 }
-
-/* FOR DESKTOP */
-@media (min-width: 768px) { 
-  .margin-top-desktop{
-    margin-top: 40px;
-  }
-
-  #jumbotron{
-    margin-top: 60px;
-    margin-bottom: 70px;
-  }
-
-  .demo-for-mobile{
-    display: none;
-  }
-}
-
 

@@ -5,6 +5,7 @@
   <h4 class="font-weight-bold">Template</h4>
   <div class="sub-content">
     <span class="my-font d-block">Template - {{ data.template }}</span>
+    <img src="{% static 'img/' %}template-{{data.template}}.png" style="width: 100%;margin-bottom: 5px;">
     <button class="btn btn-outline-primary btn-sm"  data-toggle="modal" data-target="#updateTemplate">Edit</button>
   </div>
   <!-- Modal -->
@@ -20,12 +21,20 @@
         <div class="modal-body">
           <form action="{% url 'update_template' %}" method="POST" accept-charset="utf-8">
             {% csrf_token %}
-            <input type="radio" id="t-1" name="template" value="1">
-            <label for="t-1"><img src="{% static 'img/ig.svg' %}" width="25"></label><br>
-            <input type="radio" id="t-2" name="template" value="2">
-            <label for="t-2">Templates 2</label><br>
-            <input type="radio" id="t-3" name="template" value="3">
-            <label for="t-3">Templates 3</label><br>
+            <div class="row">
+              <div class="col-md-4">
+                <input type="radio" id="t-1" name="template" value="1">
+                <label role="button" for="t-1"><img src="{% static 'img/template-1.png' %}" style="width: 100%;"></label><br>
+              </div>
+              <div class="col-md-4">
+                <input type="radio" id="t-2" name="template" value="2">
+                <label role="button" for="t-2"><img src="{% static 'img/template-2.png' %}" style="width: 100%;"></label><br>
+              </div>
+              <div class="col-md-4">
+                <input type="radio" id="t-3" name="template" value="3">
+                <label role="button" for="t-3"><img src="{% static 'img/template-3.png' %}" style="width: 100%;"></label><br>
+              </div>
+            </div>
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>
         </div>
