@@ -1,33 +1,33 @@
 {% load static %}
-<!-- DESCRIPTION -->
+<!-- Summary -->
 <div>
   <h4 class="font-weight-bold">
-    Description
-    <button class="btn btn-abdi btn-sm" data-toggle="modal" data-target="#updateDescription">Edit</button>
+    Summary
+    <button class="btn btn-abdi btn-sm" data-toggle="modal" data-target="#updateSummary">Edit</button>
   </h4>
   <div>
     <span class="d-block">
-    {% if data.description %}
-    {{ data.description }}
+    {% if data.summary %}
+    {{ data.summary }}
     {% else %}
     Tidak ada
     {% endif %}
     </span>
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="updateDescription" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="updateSummary" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <span class="modal-title h4" id="exampleModalLabel">Update Description</span>
+          <span class="modal-title h4" id="exampleModalLabel">Update Summary</span>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form action="{% url 'update_des' %}" method="POST" accept-charset="utf-8">
+          <form action="{% url 'update_sum' %}" method="POST" accept-charset="utf-8">
             {% csrf_token %}
-            <textarea class="form-control" name="description" id="description" rows="8" cols="40">{{ data.description }}</textarea>
+            <textarea class="form-control" name="summary" id="summary" rows="8" cols="40">{{ data.summary }}</textarea>
             <button type="submit" class="btn btn-primary mt-2">Edit</button>
         </form>
         </div>

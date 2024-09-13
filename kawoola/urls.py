@@ -44,10 +44,10 @@ urlpatterns = [
     path('social/update/', update_social, name="update_social"),
     # Color
     path('color/update/', update_color, name="update_color"),
-    # Description
-    path('description/update/', update_description, name="update_des"),
-    # Vision
-    path('vision/update/', update_vision, name="update_vision"),
+    # Summary
+    path('summary/update/', update_summary, name="update_sum"),
+    # Career
+    path('career/update/', update_career, name="update_career"),
     # Profile
     path('profile/update/', update_profile, name="update_profile"),
     # Education

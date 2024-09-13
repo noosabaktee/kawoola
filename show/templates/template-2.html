@@ -3,6 +3,11 @@
 {% load tags %}
 {% block 'style' %}{% static 'css/style-2.css' %}{% endblock %}
 {% block 'title' %}{{ user.first_name }} {{ user.last_name }}{% endblock %}
+{% block 'description' %}{{ data.summary }}{% endblock %}
+{% block 'og_title' %}{{ user.first_name }} {{ user.last_name }}{% endblock %}
+{% block 'og_description' %}{{ data.summary }}{% endblock %}
+{% block 'og_image' %}{{ data.photo }}{% endblock %}
+
 {% block 'attr' %}
 bg1={{ data.color|toObj:'bg-1' }}
 text1={{ data.color|toObj:'text-1' }}
@@ -17,8 +22,8 @@ id="riwayat-2"
     <div class="text-center">
       <img class="rounded-circle" src="{{ data.photo }}" alt="profile" width="150" height="150" data-aos="zoom-in"/>
       <span class="mt-2 h3 d-block" data-aos="fade-right">{{ user.first_name }} {{ user.last_name }}</span>
-      <p class="text-justify" data-aos="zoom-in">
-      {{ data.description }}
+      <p class="mx-auto w-75" data-aos="zoom-in" style="font-size: 1.1rem;">
+      {{ data.career }}
       </p>
     </div>
     <!-- About -->
@@ -58,12 +63,12 @@ id="riwayat-2"
   </div>
   <!-- RIGHT -->
   <div class="col-md-7 col-lg-8 pt-4 pb-4 my-container" id="right">
-    <!-- Visi Misi -->
-    {% if data.mision %}
-    <div id="visi-misi">
-      <h4 class="font-weight-bold">Vision</h4>
+    <!-- Summary -->
+    {% if data.summary %}
+    <div id="summary">
+      <h4 class="font-weight-bold">Summary</h4>
       <p class="text-justify pl-1 pr-1" data-aos="zoom-out">
-          {{ data.vision }}
+          {{ data.summary }}
       </p>
     </div>
     {% endif %}
@@ -112,7 +117,7 @@ id="riwayat-2"
       		<h5 data-aos="fade-left">{{ x.experience }}</h5>
       		<span class="d-block" data-aos="fade-left">{{ x.tahun }} - {{ x.tempat }}</span>
       		<p data-aos="fade-up">
-      		    {{ x.description }}
+      		    {{ x.career }}
       		</p>
             <hr />
             {% endfor %}

@@ -32,7 +32,7 @@
           <form action="{% url 'update_profile' %}" method="POST" accept-charset="utf-8" id="form-profile">
             {% csrf_token %}
             <label for="name">Name</label>
-            <input type="text" class="mb-2 form-control" required="" name="name" id="name" value="{{ user.first_name }} {{ user.last_name }}"/>
+            <input type="text" class="mb-2 form-control" required="" name="name" id="name" value="{{ user.first_name }}{{ user.last_name }}"/>
             <label for="website">Website</label>
             <input type="text" class="mb-2 form-control" name="website" id="website" value="{{ data.website }}"/>
             <label for="address">Address</label>

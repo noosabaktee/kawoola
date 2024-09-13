@@ -40,18 +40,18 @@ def update_color(request):
         
         
 @login_required(login_url=settings.LOGIN_URL)
-def update_description(request):
+def update_summary(request):
     if request.POST:
-        Data.objects.filter(user=request.user.username).update(description=request.POST['description'])
+        Data.objects.filter(user=request.user.username).update(summary=request.POST['summary'])
         messages.success(request, 'Data berhasil diubah!')
         
     return redirect('abdi')
         
         
 @login_required(login_url=settings.LOGIN_URL)
-def update_vision(request):
+def update_career(request):
     if request.POST:
-        Data.objects.filter(user=request.user.username).update(vision=request.POST['vision'])
+        Data.objects.filter(user=request.user.username).update(career=request.POST['career'])
         messages.success(request, 'Data berhasil diubah!')
         
     return redirect('abdi')
