@@ -33,7 +33,7 @@ admin.site.login = is_staff(admin.site.login)
 urlpatterns = [
     path('', TemplateView.as_view(template_name="index.html"), name="home"),
     path('faq/', TemplateView.as_view(template_name="faq.html"), name="faq"),
-    path('admin/', admin.site.urls),
+    path('rnb/', admin.site.urls),
     # Authentication
     path('register/', register, name="register"),
     path('login/', login_view, name="login"),
