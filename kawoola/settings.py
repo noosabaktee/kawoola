@@ -30,6 +30,7 @@ SECRET_KEY = getenv('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ['.vercel.app']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
